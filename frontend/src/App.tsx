@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import type React from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 // TypeScript interfaces
@@ -156,7 +157,7 @@ function App() {
         },
         body: JSON.stringify({
           playerId: userId,
-          betAmount
+          betAmount,
         }),
       });
       const data = await res.json();
@@ -261,7 +262,11 @@ function App() {
   return (
     <div className="App">
       <h1>Blackjack</h1>
-      {error && <div className="message" style={{ color: 'red' }}>{error}</div>}
+      {error && (
+        <div className="message" style={{ color: 'red' }}>
+          {error}
+        </div>
+      )}
       {!isLoggedIn ? (
         <div className="auth-container">
           <h2>{isRegistering ? 'Register' : 'Login'}</h2>
@@ -282,10 +287,7 @@ function App() {
             />
             <button type="submit">{isRegistering ? 'Register' : 'Login'}</button>
           </form>
-          <button
-            className="switch-auth-btn"
-            onClick={() => setIsRegistering(!isRegistering)}
-          >
+          <button className="switch-auth-btn" onClick={() => setIsRegistering(!isRegistering)}>
             {isRegistering ? 'Already have an account? Login' : 'No account? Register'}
           </button>
           {message && <p className="message">{message}</p>}
@@ -328,21 +330,25 @@ function App() {
               <div className="dealer-hand">
                 <h3>Dealer</h3>
                 <div className="cards-container">
-                  {gameState?.dealerHand && Array.isArray(gameState.dealerHand) && gameState.dealerHand.map((card, index) => (
-                    <div key={index} className="card-wrapper">
-                      {renderCard(card)}
-                    </div>
-                  ))}
+                  {gameState?.dealerHand &&
+                    Array.isArray(gameState.dealerHand) &&
+                    gameState.dealerHand.map((card, index) => (
+                      <div key={index} className="card-wrapper">
+                        {renderCard(card)}
+                      </div>
+                    ))}
                 </div>
               </div>
               <div className="player-hand">
                 <h3>Player</h3>
                 <div className="cards-container">
-                  {gameState?.playerHand && Array.isArray(gameState.playerHand) && gameState.playerHand.map((card, index) => (
-                    <div key={index} className="card-wrapper">
-                      {renderCard(card)}
-                    </div>
-                  ))}
+                  {gameState?.playerHand &&
+                    Array.isArray(gameState.playerHand) &&
+                    gameState.playerHand.map((card, index) => (
+                      <div key={index} className="card-wrapper">
+                        {renderCard(card)}
+                      </div>
+                    ))}
                 </div>
               </div>
               <div className="game-message">{gameState.message}</div>
@@ -359,11 +365,7 @@ function App() {
                   </button>
                 </div>
               )}
-              {gameState.gameOver && (
-                <button onClick={() => setGameState(null)}>
-                  New Game
-                </button>
-              )}
+              {gameState.gameOver && <button onClick={() => setGameState(null)}>New Game</button>}
             </div>
           )}
           <button
@@ -393,7 +395,10 @@ function App() {
                   </thead>
                   <tbody>
                     {leaderboard.map((user, index) => (
-                      <tr key={user._id || user.id} className={user._id === userId ? 'current-user' : ''}>
+                      <tr
+                        key={user._id || user.id}
+                        className={user._id === userId ? 'current-user' : ''}
+                      >
                         <td>{index + 1}</td>
                         <td>{user.username}</td>
                         <td>${user.highestWin}</td>

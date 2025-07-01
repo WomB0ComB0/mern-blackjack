@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap");
 
 * {
   margin: 0;
@@ -15,7 +15,7 @@
 }
 
 h1 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 3rem;
   margin-bottom: 2rem;
   color: #fff;
@@ -24,14 +24,14 @@ h1 {
 }
 
 h2 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 2rem;
   margin-bottom: 1.5rem;
   color: #00ff88;
 }
 
 button {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   background: linear-gradient(45deg, #00ff88, #00b8ff);
   border: none;
   padding: 12px 24px;
@@ -58,7 +58,7 @@ button:disabled {
 }
 
 input {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid #00ff88;
   padding: 12px;
@@ -129,7 +129,7 @@ input:focus {
 }
 
 .game-message {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   font-size: 1.5rem;
   margin: 20px 0;
   color: #00ff88;
@@ -149,20 +149,21 @@ table {
   margin-top: 20px;
 }
 
-th, td {
+th,
+td {
   padding: 12px;
   text-align: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 th {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   background: rgba(0, 255, 136, 0.1);
   color: #00ff88;
 }
 
 td {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
 }
 
 .current-user {
@@ -189,7 +190,7 @@ td {
 }
 
 .message {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: "Rajdhani", sans-serif;
   margin-top: 15px;
   color: #00ff88;
 }
@@ -215,20 +216,22 @@ td {
 }
 
 .user-info p {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
   font-size: 1.1rem;
   color: #00ff88;
 }
 
-.dealer-hand, .player-hand {
+.dealer-hand,
+.player-hand {
   background: rgba(255, 255, 255, 0.05);
   padding: 20px;
   border-radius: 12px;
   margin: 20px 0;
 }
 
-.dealer-hand h3, .player-hand h3 {
-  font-family: 'Orbitron', sans-serif;
+.dealer-hand h3,
+.player-hand h3 {
+  font-family: "Orbitron", sans-serif;
   color: #00ff88;
   font-size: 1.5rem;
   margin-bottom: 15px;
@@ -269,4 +272,3 @@ td {
   background-color: #ffd700;
   color: #1a1a1a;
 }
-

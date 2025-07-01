@@ -1,6 +1,6 @@
 import Game from '../models/game';
 import User from '../models/user';
-import { initializeDeck, drawCard, calculateHand } from '../utils';
+import { calculateHand, drawCard, initializeDeck } from '../utils';
 
 export async function blackjackRoutes(req: Request): Promise<Response> {
   const url = new URL(req.url);
@@ -9,7 +9,7 @@ export async function blackjackRoutes(req: Request): Promise<Response> {
 
   async function parseBody(): Promise<Record<string, any>> {
     try {
-      return await req.json() as Record<string, any>;
+      return (await req.json()) as Record<string, any>;
     } catch {
       return {};
     }
@@ -26,13 +26,25 @@ export async function blackjackRoutes(req: Request): Promise<Response> {
     await Game.deleteMany({ playerId, gameOver: false });
     const user = await User.findById(playerId);
     if (!user) return Response.json({ message: 'User not found' }, { status: 404 });
-    if (user.balance < betAmount) return Response.json({ message: 'Insufficient balance' }, { status: 400 });
+    if (user.balance < betAmount)
+      return Response.json({ message: 'Insufficient balance' }, { status: 400 });
     const existingGame = await Game.findOne({ playerId, gameOver: false });
-    if (existingGame) return Response.json({ message: 'You have an unfinished game, please complete it first' }, { status: 400 });
+    if (existingGame)
+      return Response.json(
+        { message: 'You have an unfinished game, please complete it first' },
+        { status: 400 },
+      );
     await initializeDeck();
     const playerHand = await drawCard(2);
     const dealerHand = await drawCard(2);
-    const game = await Game.create({ playerId, playerHand, dealerHand, betAmount, gameOver: false, message: 'Game started' });
+    const game = await Game.create({
+      playerId,
+      playerHand,
+      dealerHand,
+      betAmount,
+      gameOver: false,
+      message: 'Game started',
+    });
     user.balance -= betAmount;
     user.totalGames += 1;
     await user.save();
@@ -135,4 +147,4 @@ export async function blackjackRoutes(req: Request): Promise<Response> {
 
   // Fallback
   return new Response('Not found', { status: 404 });
-} 
+}

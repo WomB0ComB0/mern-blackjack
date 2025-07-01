@@ -1,7 +1,7 @@
 /**
  * User Routes
-*/
-import { genSalt, hash, compare } from 'bcryptjs';
+ */
+import { compare, genSalt, hash } from 'bcryptjs';
 import { User } from '../models';
 
 export async function userRoutes(req: Request): Promise<Response> {
@@ -12,7 +12,7 @@ export async function userRoutes(req: Request): Promise<Response> {
   // Helper: parse JSON body
   async function parseBody(): Promise<Record<string, any>> {
     try {
-      return await req.json() as Record<string, any>;
+      return (await req.json()) as Record<string, any>;
     } catch {
       return {};
     }
@@ -33,10 +33,13 @@ export async function userRoutes(req: Request): Promise<Response> {
     const salt = await genSalt(10);
     const hashedPassword = await hash(password, salt);
     const user = await User.default.create({ username, password: hashedPassword });
-    return Response.json({
-      message: 'Register Success',
-      user: { id: user._id, username: user.username, balance: user.balance }
-    }, { status: 201 });
+    return Response.json(
+      {
+        message: 'Register Success',
+        user: { id: user._id, username: user.username, balance: user.balance },
+      },
+      { status: 201 },
+    );
   }
 
   // POST /login
@@ -57,13 +60,14 @@ export async function userRoutes(req: Request): Promise<Response> {
     }
     return Response.json({
       message: 'Login Success',
-      user: { id: user._id, username: user.username, balance: user.balance }
+      user: { id: user._id, username: user.username, balance: user.balance },
     });
   }
 
   // GET /leaderboard
   if (method === 'GET' && path === '/leaderboard') {
-    const users = await User.default.find()
+    const users = await User.default
+      .find()
       .select('username balance wins totalGames highestWin')
       .sort({ balance: -1 })
       .limit(10);
@@ -100,4 +104,4 @@ export async function userRoutes(req: Request): Promise<Response> {
 
   // Fallback
   return new Response('Not found', { status: 404 });
-} 
+}

@@ -1,6 +1,6 @@
 import { connectDB } from './config/db';
-import { userRoutes } from './routes/user.routes';
 import { blackjackRoutes } from './routes/black-jack.routes';
+import { userRoutes } from './routes/user.routes';
 
 connectDB();
 
@@ -25,5 +25,5 @@ Bun.serve({
     }
 
     return new Response('Not found', { status: 404 });
-  }
-}); 
+  },
+});

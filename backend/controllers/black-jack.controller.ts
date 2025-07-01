@@ -1,8 +1,9 @@
 /**
- * 
-*/
-import User from '../models/user';
+ *
+ */
+
 import type { Request, Response } from 'express';
+import User from '../models/user';
 
 type Card = { suit: string; value: string };
 
@@ -55,7 +56,7 @@ const calculateHand = (hand: Card[]): number => {
 };
 
 // In-memory game state (for demonstration; not for production multi-user use)
-let gameState: GameState = {
+const gameState: GameState = {
   deck: [],
   playerHand: [],
   dealerHand: [],
@@ -63,7 +64,7 @@ let gameState: GameState = {
   message: '',
   betAmount: 0,
   winAmount: 0,
-  playerId: null
+  playerId: null,
 };
 
 // All routing and logic should be handled in black-jack.routes.ts for Bun.
@@ -153,7 +154,7 @@ const stand = async (_req: Request, res: Response) => {
     }
 
     gameState.gameOver = true;
-    let user = await User.findById(gameState.playerId);
+    const user = await User.findById(gameState.playerId);
     if (user) {
       user.totalGames += 1;
       if (dealerScore > 21) {
@@ -184,8 +185,4 @@ const stand = async (_req: Request, res: Response) => {
   }
 };
 
-export {
-  startGame,
-  hit,
-  stand
-}; 
+export { startGame, hit, stand };

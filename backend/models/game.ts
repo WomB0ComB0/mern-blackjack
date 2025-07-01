@@ -1,38 +1,43 @@
 const { model, Schema } = await import('mongoose');
-export default model('Game',
+export default model(
+  'Game',
   new Schema({
     playerId: {
       type: String,
-      required: true
+      required: true,
     },
-    playerHand: [{
-      suit: String,
-      value: String,
-      code: String,
-      image: String
-    }],
-    dealerHand: [{
-      suit: String,
-      value: String,
-      code: String,
-      image: String
-    }],
+    playerHand: [
+      {
+        suit: String,
+        value: String,
+        code: String,
+        image: String,
+      },
+    ],
+    dealerHand: [
+      {
+        suit: String,
+        value: String,
+        code: String,
+        image: String,
+      },
+    ],
     betAmount: {
       type: Number,
-      required: true
+      required: true,
     },
     winAmount: {
       type: Number,
-      default: 0
+      default: 0,
     },
     gameOver: {
       type: Boolean,
-      default: false
+      default: false,
     },
     message: String,
     createdAt: {
       type: Date,
-      default: Date.now
-    }
-  })
+      default: Date.now,
+    },
+  }),
 );
