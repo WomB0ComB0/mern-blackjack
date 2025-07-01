@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: #fff;
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #00ff88;
+}
+
+button {
+  font-family: 'Rajdhani', sans-serif;
+  background: linear-gradient(45deg, #00ff88, #00b8ff);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: #1a1a1a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 5px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+}
+
+button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+input {
+  font-family: 'Share Tech Mono', monospace;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #00ff88;
+  padding: 12px;
+  border-radius: 8px;
+  color: #fff;
+  margin: 10px;
+  font-size: 1rem;
+  width: 200px;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+.game-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.user-info {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game-board {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 16px;
+  margin: 20px 0;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  min-height: 160px;
+}
+
+.card {
+  background: transparent;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  margin: 5px;
+  display: inline-block;
+}
+
+.card:hover {
+  transform: translateY(-5px) rotate(2deg);
+}
+
+.card img {
+  width: 100px;
+  height: 140px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-message {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.5rem;
+  margin: 20px 0;
+  color: #00ff88;
+  text-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+}
+
+.leaderboard {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+  font-family: 'Orbitron', sans-serif;
+  background: rgba(0, 255, 136, 0.1);
+  color: #00ff88;
+}
+
+td {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.current-user {
+  background: rgba(0, 255, 136, 0.2);
+}
+
+.auth-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+}
+
+.switch-auth-btn {
+  background: none;
+  border: 2px solid #00ff88;
+  color: #00ff88;
+  margin-top: 15px;
+}
+
+.switch-auth-btn:hover {
+  background: rgba(0, 255, 136, 0.1);
+}
+
+.message {
+  font-family: 'Rajdhani', sans-serif;
+  margin-top: 15px;
+  color: #00ff88;
+}
+
+.logout-btn {
+  background: linear-gradient(45deg, #ff4444, #ff8800);
+}
+
+.surrender-btn {
+  background: linear-gradient(45deg, #ff4444, #ff8800);
+}
+
+.leaderboard-btn {
+  background: linear-gradient(45deg, #00b8ff, #00ff88);
+  margin: 20px 0;
+}
+
+.game-container {
+  background-color: #2a2a2a;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-info p {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.1rem;
+  color: #00ff88;
+}
+
+.dealer-hand, .player-hand {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.dealer-hand h3, .player-hand h3 {
+  font-family: 'Orbitron', sans-serif;
+  color: #00ff88;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  text-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+}
+
+.game-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.start-game {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.start-game input {
+  padding: 12px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1em;
+  width: 100px;
+}
+
+.start-game input:focus {
+  outline: none;
+  border-color: #ffd700;
+}
+
+.start-game button {
+  background-color: #ffd700;
+  color: #1a1a1a;
+}
+

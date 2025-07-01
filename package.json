@@ -1,0 +1,28 @@
+{
+  "name": "blackjack",
+  "version": "1.0.0", 
+  "description": "Blackjack game with React frontend and Node.js backend",
+  "scripts": {
+    "start": "bun run dev",
+    "dev": "concurrently \"cd backend && bun run dev\" \"cd frontend && bun run dev\"",
+    "install-all": "bun install && cd frontend && bun install && cd ../backend && bun install",
+    "build": "cd frontend && bun run build",
+    "deploy-build": "bun install && bun run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "@types/bun": "latest"
+  },
+  "dependencies": {
+    "frontend": "./frontend"
+  },
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=24.1.0"
+  }
+}
