@@ -17,12 +17,12 @@
   "dependencies": {
     "@biomejs/biome": "2.0.6"
   },
-  "module": "index.ts",
   "type": "module",
   "private": true,
   "peerDependencies": {
     "typescript": "^5"
   },
+  "packageManager": "bun@1.2.7",
   "engines": {
     "node": ">=24.1.0"
   }
